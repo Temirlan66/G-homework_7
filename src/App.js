@@ -1,30 +1,14 @@
 import React from "react";
+import Button from "./component/Button";
+import Timer from "./component/Timer";
 
-class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { seconds: 0 };
-  }
+const App = () => {
+  return (
+    <div>
+      <Timer/>
+      <Button />
+    </div>
+  );
+};
 
-  tick() {
-    this.setState((state) => ({
-      seconds: state.seconds + 1,
-    }));
-  }
-
-  componentDidMount(){
-    this.interval =setInterval(()=>this.tick(),1000)
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.interval)
-  }
-
-  render(){
-    return (
-      <div>Секунд: {this.state.seconds}</div>
-    )
-  }
-}
-
-export default Timer;
+export default App;
